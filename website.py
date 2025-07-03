@@ -197,7 +197,7 @@ if page == "🏠 Home":
     
     with col3:
         st.markdown("### Development Tools")
-        main_tools = ['Git', 'GitHub', 'Figma', 'PowerBI']
+        main_tools = ['Java', 'C++', 'Git', 'Figma']
         for skill in main_tools:
             st.markdown(f'<span class="skill-badge">{skill}</span>', unsafe_allow_html=True)
     
