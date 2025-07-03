@@ -170,7 +170,7 @@ if page == "🏠 Home":
         <p style="font-size: 1.1rem; line-height: 1.6;">
             Aspiring Software Developer with a solid foundation in <strong>C, Python, Java</strong>, and 
             <strong>Data Structures & Algorithms</strong>. Experienced in building web applications and 
-            AI-driven solutions, proficient in tools like Excel and Power BI. I aim to contribute 
+            AI-driven solutions, proficient in tools like Figma and Git. I aim to contribute 
             impactful software projects, grow within a collaborative team, and continuously develop 
             my technical and problem-solving skills.
         </p>
@@ -185,19 +185,19 @@ if page == "🏠 Home":
     
     with col1:
         st.markdown("### Full-Stack Development")
-        main_fullstack = ['ReactJs', 'Flask', 'MongoDB', 'Python']
+        main_fullstack = ['UI/UX', 'ReactJs', 'Flask', 'MongoDB', 'Java']
         for skill in main_fullstack:
             st.markdown(f'<span class="skill-badge">{skill}</span>', unsafe_allow_html=True)
             
     with col2:
         st.markdown("### AI & Machine Learning")
-        main_ai = ['Machine Learning', 'GenAI', 'Computer Vision']
+        main_ai = ['Machine Learning', 'GenAI', 'Prompt Engineering', 'AI-Agents']
         for skill in main_ai:
             st.markdown(f'<span class="skill-badge">{skill}</span>', unsafe_allow_html=True)
     
     with col3:
         st.markdown("### Development Tools")
-        main_tools = ['Java', 'C++', 'Git', 'Figma']
+        main_tools = ['Java', 'C++', 'Python', 'Git', 'Figma', 'PowerBI']
         for skill in main_tools:
             st.markdown(f'<span class="skill-badge">{skill}</span>', unsafe_allow_html=True)
     
