@@ -15,7 +15,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for enhanced styling
+# CSS
 st.markdown("""
 <style>
     .main-header {
@@ -138,7 +138,7 @@ projects = [
 
 # HOME PAGE
 if page == "🏠 Home":
-    # Header Section
+    
     st.markdown("""
     <div class="main-header">
         <h1 style="color: white; text-align: center; font-size: 3rem; margin-bottom: 0.5rem;">
@@ -150,7 +150,7 @@ if page == "🏠 Home":
     </div>
     """, unsafe_allow_html=True)
     
-    # Quick Stats
+    # Quick stats
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
@@ -162,7 +162,7 @@ if page == "🏠 Home":
     with col4:
         st.metric("💡 Technologies", "20+", "Always Learning")
     
-    # Career Objective
+    # Career objective
     st.markdown("## 🎯 Career Objective")
     st.markdown("""
     <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); 
@@ -177,10 +177,9 @@ if page == "🏠 Home":
     </div>
     """, unsafe_allow_html=True)
     
-    # Skills Overview
+    # Skills overview
     st.markdown("## 🛠️ Technical Arsenal")
     
-    # Create main skill categories with key technologies only
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -201,7 +200,7 @@ if page == "🏠 Home":
         for skill in main_tools:
             st.markdown(f'<span class="skill-badge">{skill}</span>', unsafe_allow_html=True)
     
-    # Recent Highlights
+    # Recent highlights
     st.markdown("## ⭐ Recent Highlights")
     
     col1, col2 = st.columns(2)
@@ -236,7 +235,6 @@ if page == "🏠 Home":
 elif page == "💼 Experience":
     st.markdown("# 💼 Professional Experience")
     
-    # Experience Timeline
     experiences = [
         {
             'role': 'Web Developer',
@@ -284,7 +282,6 @@ elif page == "💼 Experience":
         }
     ]
     
-    # Display experiences
     for exp in experiences:
         st.markdown(f"""
         <div class="timeline-item">
@@ -305,7 +302,6 @@ elif page == "💼 Experience":
 elif page == "🎯 Projects":
     st.markdown("# 🎯 Featured Projects")
     
-    # Project showcase
     for i, project in enumerate(projects):
         col1, col2 = st.columns([2, 1])
         
@@ -330,7 +326,7 @@ elif page == "🎯 Projects":
             """, unsafe_allow_html=True)
         
         with col2:
-            # Create a simple project metrics visualization
+    
             fig = go.Figure(go.Indicator(
                 mode = "gauge+number",
                 value = 95 - i*5,  # Simulated completion percentage
@@ -398,7 +394,6 @@ elif page == "🏆 Achievements":
         }
     ]
     
-    # Display achievements in an interactive format
     col1, col2 = st.columns(2)
     
     for i, achievement in enumerate(achievements):
@@ -417,7 +412,7 @@ elif page == "🏆 Achievements":
             </div>
             """, unsafe_allow_html=True)
     
-    # Academic Performance
+    # Academic performance
     st.markdown("## 📚 Academic Excellence")
     
     col1, col2, col3 = st.columns(3)
@@ -462,7 +457,6 @@ elif page == "📊 Skills Dashboard":
         'Cloud & Tools': {'AWS': 20, 'Git': 90, 'Docker': 50, 'PowerBI': 75}
     }
     
-    # Create tabs for different skill categories
     tab1, tab2, tab3 = st.columns(3)
     
     with tab1:
@@ -590,7 +584,6 @@ elif page == "📞 Contact":
                 st.success("Message sent successfully! I'll get back to you soon. 🎉")
     
     with col2:
-        # Quick stats about Kabir
         st.markdown("## 🎯 Quick Stats")
         
         st.metric("📧 Response Time", "< 24 hrs", "Always responsive")
@@ -598,7 +591,7 @@ elif page == "📞 Contact":
         st.metric("🎓 Education", "VIT Pune", "Engineering Student")
         st.metric("🏆 Achievements", "5+", "Awards & Recognition")
         
-        # Extra-curricular highlights
+        # Extra curricular highlights
         st.markdown("## 🎨 Beyond Tech")
         
         st.markdown("""
@@ -633,10 +626,3 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Add some interactivity with a live clock
-if st.sidebar.checkbox("Show Live Clock"):
-    placeholder = st.sidebar.empty()
-    while True:
-        current_time = datetime.now().strftime("%H:%M:%S")
-        placeholder.markdown(f"**Current Time:** {current_time}")
-        time.sleep(1)
