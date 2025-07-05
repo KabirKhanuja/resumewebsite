@@ -7,7 +7,6 @@ import numpy as np
 from datetime import datetime, timedelta
 import time
 
-# Page configuration
 st.set_page_config(
     page_title="Kabir Khanuja | Software Developer",
     page_icon="💻",
@@ -15,7 +14,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS
 st.markdown("""
 <style>
     .main-header {
@@ -98,7 +96,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Sidebar Navigation
 st.sidebar.markdown("# 🚀 Navigation")
 page = st.sidebar.selectbox(
     "Choose a section:",
@@ -120,19 +117,22 @@ projects = [
         'name': 'Virtual AI Rehabilitation Assistant',
         'tech': ['Flask', 'MongoDB', 'Machine Learning', 'GenAI', 'React-Native'],
         'description': 'AI-powered rehabilitation assistant with personalized adaptive roadmaps and real-time progress tracking.',
-        'impact': '99.5% user satisfaction'
+        'impact': '99.5% user satisfaction',
+        'github': 'https://github.com/KabirKhanuja/Arogya'
     },
     {
         'name': 'Fake Job Detector',
         'tech': ['Machine Learning', 'Random Forest', 'Naive Bayes', 'ReactJs'],
         'description': 'ML-based fake job posting detector achieving 99.66% accuracy in fraud detection.',
-        'impact': '99.66% accuracy'
+        'impact': '99.66% accuracy',
+        'github': 'https://github.com/KabirKhanuja/fakejobdetector'
     },
     {
         'name': 'CarbonCtrl',
         'tech': ['GitHub Actions', 'VS Code', 'CodeCarbon', 'AI'],
         'description': 'Sustainability-focused developer toolchain for carbon emission tracking and optimization.',
-        'impact': 'CO₂ reduction in dev workflows'
+        'impact': 'CO₂ reduction in dev workflows',
+        'github': None
     }
 ]
 
@@ -162,7 +162,6 @@ if page == "🏠 Home":
     with col4:
         st.metric("💡 Technologies", "20+", "Always Learning")
     
-    # Career objective
     st.markdown("## 🎯 Career Objective")
     st.markdown("""
     <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); 
@@ -239,6 +238,7 @@ elif page == "💼 Experience":
         {
             'role': 'Web Developer',
             'company': 'Insurance with Hardeep',
+            'company_url': 'https://insurancewithhardeep.com',
             'duration': 'DEC 2024 - FEB 2025',
             'description': 'Spearheaded design and development of fully functional website with focus on UI/UX optimization.',
             'achievements': [
@@ -250,6 +250,7 @@ elif page == "💼 Experience":
         {
             'role': 'Marketing Manager & Specialist',
             'company': 'Pawzz',
+            'company_url': 'https://pawzz.org',
             'duration': 'APR 2024 - JUN 2024',
             'description': 'Led multifaceted responsibilities for animal welfare mission including content creation and awareness campaigns.',
             'achievements': [
@@ -261,6 +262,7 @@ elif page == "💼 Experience":
         {
             'role': 'Technical Expert',
             'company': 'TravLeo',
+            'company_url': 'https://travleo.in/',
             'duration': 'NOV 2022 - FEB 2023',
             'description': 'Played pivotal role in website development with focus on both frontend and backend development.',
             'achievements': [
@@ -272,6 +274,7 @@ elif page == "💼 Experience":
         {
             'role': 'Student Intern',
             'company': 'Dassault Systèmes',
+            'company_url': None,
             'duration': 'JUL 2020 - AUG 2021',
             'description': 'Participated in Seed the Future Entrepreneurs Program, built portable mixer project.',
             'achievements': [
@@ -286,7 +289,9 @@ elif page == "💼 Experience":
         st.markdown(f"""
         <div class="timeline-item">
             <h3 style="color: #667eea; margin-bottom: 0.5rem;">{exp['role']}</h3>
-            <h4 style="color: #764ba2; margin-bottom: 0.5rem;">{exp['company']} | {exp['duration']}</h4>
+            <h4 style="color: #764ba2; margin-bottom: 0.5rem;">
+                {'<a href="' + exp['company_url'] + '" target="_blank" style="color: #764ba2; text-decoration: none;">' + exp['company'] + '</a>' if exp['company_url'] else exp['company']} | {exp['duration']}
+            </h4>
             <p style="margin-bottom: 1rem;">{exp['description']}</p>
             <strong>Key Achievements:</strong>
             <ul>
@@ -322,14 +327,14 @@ elif page == "🎯 Projects":
                 <div style="background: rgba(102, 126, 234, 0.2); padding: 0.8rem; border-radius: 8px; margin-top: 1rem;">
                     <strong>Impact:</strong> {project['impact']}
                 </div>
+                {'<div style="margin-top: 1rem;"><a href="' + project['github'] + '" target="_blank" style="background: #333; color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; font-weight: bold;">🔗 View on GitHub</a></div>' if project['github'] else ''}
             </div>
             """, unsafe_allow_html=True)
         
         with col2:
-    
             fig = go.Figure(go.Indicator(
                 mode = "gauge+number",
-                value = 95 - i*5,  # Simulated completion percentage
+                value = 95 - i*5,  
                 domain = {'x': [0, 1], 'y': [0, 1]},
                 title = {'text': "Project Score"},
                 gauge = {
@@ -625,4 +630,3 @@ st.markdown("""
     <p><em>"Aspiring to make technology accessible and impactful for everyone"</em></p>
 </div>
 """, unsafe_allow_html=True)
-
